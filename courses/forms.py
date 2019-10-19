@@ -19,6 +19,10 @@ class CreateCourseForm(forms.ModelForm):
             'file':forms.FileInput(attrs={'class':'form-control form-control-user'})
         }
 
+        help_texts = {
+            "file":"<p class='text-danger'>Note: *.pdf, *.doc, *.docx, *.(jpg,png,gif) are accepted</p>"
+        }
+
 class CourseUpdateForm(forms.ModelForm):
    
     class Meta:
@@ -46,6 +50,10 @@ class CreateTopicForm(forms.ModelForm):
             'contents':forms.Textarea(attrs={'class':'form-control','rows':'3' ,'id':'summernote'}),
             'levels':forms.Select(attrs={'class':'form-control form-control-user','placeholder':''}),
             'file':forms.FileInput(attrs={'class':'form-control form-control-user'})
+        }
+
+        help_texts = {
+            "file":"<p class='text-danger'>Note: *.pdf, *.doc, *.docx, *.(jpg,png,gif) are accepted</p>"
         }
       
 

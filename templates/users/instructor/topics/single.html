@@ -1,0 +1,21 @@
+{% extends 'users/instructor/layout.html' %}
+
+{% block title %}
+    {{topic.title}}
+{% endblock title %}
+
+{% block content %}
+ <p class="lead"> Dashboard / Topic / {{topic.title}}</p>
+    <section class="row">
+   
+        <div class="col-lg-6 offset-lg-3 mt-5 p-4 shadow">
+        <input type="text" value='{{topic.title}}' disabled class='form-control form-control-user mb-2'>
+        <input type="text" value='{{topic.course}}' disabled class='form-control form-control-user mb-2'>
+        <input type="text" value='{{topic.instructor.first_name}}' disabled class='form-control form-control-user mb-2'>
+        <textarea name="" id="" cols="5" disabled class='form-control mb-2' rows="4">{{topic.contents}}</textarea>
+        <a href="{{topic.file.url}}" class="lead mb-2"> Download topic &darr;</a> <br><br>
+        <a href="{% url 'courses:topic_update' pk=topic.pk %}" class="btn btn-block btn-info"> Update topic</a>
+        </div>
+        </div>
+    </section>
+{% endblock content %}
