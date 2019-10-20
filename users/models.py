@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 class UserManager(AbstractUser):
     choice = (('ND-I','ND-I'),('ND-II','ND-II'),('HND-I','HND-I'),('HND-II','HND-II'))
-    result = (('lower','Lower-Credit'),('upper','Upper-Credit'),('pass','Pass'),('distinction','Distinction'))
+    result = (('easy','Lower-Credit'),('difficult','Upper-Credit'),('easy','Pass'),('difficult','Distinction'))
     is_teacher = models.BooleanField(null=True)
     is_student = models.BooleanField(null=True)
     mobile_number = models.CharField(max_length=13, null=True)

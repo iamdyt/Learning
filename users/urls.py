@@ -11,7 +11,7 @@ urlpatterns = [
     path("instructor/dashboard/",views.Dashboard .as_view(), name="instructor_dashboard"),
 
     #Students
-    path("student/sign-up/", views.Register.as_view(), name="student_register"),
-    path("student/sign-in/", views.Login.as_view(), name="student_login"),
-    path("student/dashboard/",views.Dashboard .as_view(), name="student_dashboard"),
+    path("student/sign-up/", views.StudentRegister.as_view(), name="student_register"),
+    path("student/sign-in/", views.StudentLogin.as_view(), name="student_login"),
+    path("student/dashboard/",views.StudentDashboard.as_view(), name="student_dashboard"),
 ]

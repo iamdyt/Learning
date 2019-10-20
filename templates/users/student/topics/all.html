@@ -1,0 +1,49 @@
+{% extends 'users/instructor/layout.html' %}
+{% load humanize %}
+{% block title %}
+    All Topics
+{% endblock title %}
+
+{% block content %}
+    <section class="row">
+        <div class="col-lg-12 mt-4">
+            <span class="lead mb-3">All Topic in Courses Taken/Added By You</span>
+            <div class="card shadow mt-2 mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">All Topics <span><a href="{% url 'courses:topic_add' %}" class="btn float-right mb-3 btn-primary">&plus; Add Topic</a></span></h6>
+            </div>
+            <div class="card-body">
+               <table class="table table-striped">
+                <thead>
+                    <tr>
+                    
+                    <th scope="col">Title</th>
+                    <th scope='col'>Course</th>
+                    <th scope="col">File</th>
+                     <th scope="col">Levels</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Manage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for topic in topics  %}
+                    <tr>
+                   
+                    <td>{{topic.title}}</td>
+                    <td>{{topic.course}}</td>
+                    <td>(<a href="{{topic.file.url}}" class="">{{topic.file}} <i class="fas fa-download"></i></a>)</td>
+                    <td>{{topic.levels | capfirst}}</td>
+                     <td>{{topic.instructor.first_name}}-{{topic.instructor.last_name}}</td>
+                     <td>{{topic.created | naturaltime}}</td>
+                     <td> <a href="{% url 'courses:topic_view' pk=topic.pk %}"><i class="fas fa-eye text-info"></i></a> &emsp; <i class="fas fa-trash text-danger"></i></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+            </div>
+            </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

@@ -122,7 +122,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-LOGIN_REDIRECT_URL = 'users:instructor_dashboard'
+#LOGIN_REDIRECT_URL = 'users:instructor_dashboard'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'commonstatic'),)
 #STATIC_ROOT = os.path.join(BASE_DIR, "allstatic")

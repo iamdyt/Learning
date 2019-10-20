@@ -1,0 +1,138 @@
+{% extends 'users/instructor/layout.html' %}
+
+{% block title %}
+  Home | Dashboard
+{% endblock title %}
+
+{% block content %}
+
+         
+         
+ <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <span class="h3 mb-0 text-gray-800">Dashboard</span>
+            <span class='lead text-danger'>NB: Courses/Topics/Materials Shown are regulated Based on your CGPA</span>
+          </div>
+
+          <!-- Content Row -->
+          <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-6 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Courses</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{incourse}}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+             <div class="col-xl-6 col-md-6 mb-4">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Topics</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{intopic}}</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-folder fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+          <!-- Content Row -->
+        <div class="row">
+              <!-- Approach -->
+            <div class='col-lg-12'>
+            <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Recent Courses</h6>
+            </div>
+            <div class="card-body">
+               <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Course-Code</th>
+                    <th scope="col">Course-Name</th>
+                    <th scope="col">File</th>
+                     <th scope="col">Level</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for course in courses  %}
+                    <tr>
+                    <th scope="row">{{course.course_code}}</th>
+                    <td>{{course.course_name}}</td>
+                    <td>(<a href="{{course.file.url}}" class="">{{course.file}} <i class="fas fa-download"></i></a>)</td>
+                    <td>{{course.level|capfirst}}</td>
+                     <td>{{course.instructor.first_name}}-{{course.instructor.last_name}}</td>
+                     <td>{{course.created}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+            </div>
+              <span class="text-right mr-3 mb-2">
+                  <a href="{% url 'courses:course_all' %}" class="btn btn-primary">All Courses &rarr;</a>
+              </span>
+            </div>
+            </div>
+
+
+            <div class='col-lg-12'>
+            <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Recent Topic</h6>
+            </div>
+            <div class="card-body">
+               <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Course</th>
+                    <th scope="col">File</th>
+                     <th scope="col">Levels</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for topic in topics  %}
+                    <tr>
+                    <th scope="row">{{topic.title}}</th>
+                    <td>{{topic.course}}</td>
+                    <td>(<a href="{{topic.file.url}}" class="">{{topic.file}} <i class="fas fa-download"></i></a>)</td>
+                    <td>{{topic.levels | capfirst}}</td>
+                     <td>{{topic.instructor.first_name}}-{{topic.instructor.last_name}}</td>
+                     <td>{{topic.created}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+            </div>
+              <span class="text-right mr-3 mb-2">
+                  <a href="{% url 'courses:topic_all' %}" class="btn btn-primary">All Topic &rarr;</a>
+              </span>
+            </div>
+            </div>
+        </div>
+        </div>
+     
+
+      
+
+{% endblock content %}
