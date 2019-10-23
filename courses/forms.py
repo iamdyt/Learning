@@ -16,8 +16,9 @@ class CreateCourseForm(forms.ModelForm):
             'level':forms.Select(attrs={'class':'form-control form-control-user','placeholder':''}),
             'session':forms.Select(attrs={'class':'form-control form-control-user','placeholder':''}),
             'semester':forms.Select(attrs={'class':'form-control form-control-user','placeholder':''}),
-            'file':forms.FileInput(attrs={'class':'form-control form-control-user'})
-        }
+            'video':forms.Textarea(attrs={'class':'form-control form-control-user','required':'required','placeholder':'Embed A Course related Youtube or Vimeo video here','rows':'3','cols':'5'}),       
+            'file':forms.FileInput(attrs={'class':'form-control form-control-user'}),
+            }
 
         help_texts = {
             "file":"<p class='text-danger'>Note: *.pdf, *.doc, *.docx, *.(jpg,png,gif) are accepted</p>"
@@ -36,6 +37,7 @@ class CourseUpdateForm(forms.ModelForm):
             'level':forms.Select(attrs={'class':'form-control form-control-user','placeholder':''}),
             'session':forms.Select(attrs={'class':'form-control form-control-user','placeholder':''}),
             'semester':forms.Select(attrs={'class':'form-control form-control-user','placeholder':''}),
+            'video':forms.Textarea(attrs={'class':'form-control form-control-user','required':'required','placeholder':'Embed A Course related Youtube or Vimeo video here','rows':'3','cols':'5'}),       
         }
     
 
@@ -49,6 +51,7 @@ class CreateTopicForm(forms.ModelForm):
             'course':forms.Select(attrs={'class':'form-control form-control-user','placeholder':'Course name'}),
             'contents':forms.Textarea(attrs={'class':'form-control','rows':'3' ,'id':'summernote'}),
             'levels':forms.Select(attrs={'class':'form-control form-control-user','placeholder':''}),
+            'video':forms.Textarea(attrs={'class':'form-control form-control-user','required':'required','placeholder':'Embed A Topic related Youtube or Vimeo video here','rows':'3','cols':'5'}),       
             'file':forms.FileInput(attrs={'class':'form-control form-control-user'})
         }
 
@@ -66,6 +69,7 @@ class TopicUpdateForm(forms.ModelForm):
             'course':forms.Select(attrs={'class':'form-control form-control-user','placeholder':'Course name'}),
             'contents':forms.Textarea(attrs={'class':'form-control','rows':'3','id':'summernote'}),
             'levels':forms.Select(attrs={'class':'form-control form-control-user','placeholder':''}),
+            'video':forms.Textarea(attrs={'class':'form-control form-control-user','required':'required','placeholder':'Embed A Topic related Youtube or Vimeo video here','rows':'3','cols':'5'}),       
             'file':forms.FileInput(attrs={'class':'form-control form-control-user'})
         }
 

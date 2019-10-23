@@ -1,4 +1,4 @@
-{% extends 'users/instructor/layout.html' %}
+{% extends 'users/student/layout.html' %}
 {% load humanize %}
 {% block title %}
     All Courses
@@ -7,10 +7,11 @@
 {% block content %}
     <section class="row">
         <div class="col-lg-12 mt-4">
-            <p class="lead">All Courses Taken/Added By You</p>
-            <div class="card shadow mb-4">
+            <span class="lead">All Courses Taken By You</span> 
+            <span class='lead text-danger float-right'>NB: Courses/Topics/Materials Shown are regulated Based on your CGPA</span>
+            <div class="card shadow mb-4 mt-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">All Courses <span><a href="{% url 'courses:course_add' %}" class="btn float-right mb-3 btn-primary">&plus; Add Course</a></span></h6></h6>
+                <h6 class="m-0 font-weight-bold text-primary">All Courses </h6>
             </div>
             <div class="card-body">
                <table class="table table-striped">
@@ -19,9 +20,8 @@
                     <th scope="col">Course-Code</th>
                     <th scope="col">Course-Name</th>
                     <th scope="col">File</th>
-                     <th scope="col">Level/Levels</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Date</th>
+                    <th scope="col">Lecturer-In Charge</th>
+                    <th scope="col">Published</th>
                     <th scope="col">Manage</th>
                     </tr>
                 </thead>
@@ -31,10 +31,9 @@
                     <th scope="row">{{course.course_code}}</th>
                     <td>{{course.course_name}}</td>
                     <td>(<a href="{{course.file.url}}" class="">{{course.file}} <i class="fas fa-download"></i></a>)</td>
-                    <td>{{course.level|capfirst}} / {{course.levels | capfirst}}</td>
                      <td>{{course.instructor.first_name}}-{{course.instructor.last_name}}</td>
                      <td>{{course.created | naturaltime}}</td>
-                     <td> <a href="{% url 'courses:course_view' pk=course.pk %}"><i class="fas fa-eye text-info"></i></a> &emsp; <i class="fas fa-trash text-danger"></i></td>
+                     <td> <a href="{% url 'courses:student_course_single' pk=course.pk %}" class='btn btn-sm btn-info'>Read more &rarr;</a> </td>
                     </tr>
                 {% endfor %}
                 </tbody>

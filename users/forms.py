@@ -7,6 +7,7 @@ class StaffRegForm (UserCreationForm):
 
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control form-control-user','placeholder':'Password'}))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control form-control-user','placeholder':'Confirm Password'}))
+    username = forms.CharField(help_text="<p class='text-danger lead'>Maximum of 6 Characters, Minimum of 5</p>",widget=forms.TextInput(attrs={'class':'form-control form-control-user','placeholder':'Instructors username','maxlength':'9','minlength':'7'}))
     is_teacher = forms.CharField(widget=forms.HiddenInput(attrs={'value':'1'}))
     class Meta:
         model = get_user_model()
@@ -15,16 +16,17 @@ class StaffRegForm (UserCreationForm):
             'first_name':forms.TextInput(attrs={'class':'form-control form-control-user','placeholder':'First Name'}),
             'last_name':forms.TextInput(attrs={'class':'form-control form-control-user','placeholder':'Last Name'}),
             'email':forms.TextInput(attrs={'class':'form-control form-control-user','placeholder':'E-mail Address'}),
-            'username':forms.TextInput(attrs={'class':'form-control form-control-user','placeholder':'Instructors username','maxlength':'8','minlength':'7'}),
             'mobile_number':forms.TextInput(attrs={'class':'form-control form-control-user','placeholder':' Mobile Number'}),
             'office':forms.TextInput(attrs={'class':'form-control form-control-user','placeholder':'Office Address'}),
             'image':forms.ClearableFileInput(attrs={'class':'form-control'})
 
         }
 
+        
+
 class StaffLoginForm(AuthenticationForm):
     
-    username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control form-control-user','placeholder':'Instructor username','maxlength':'8','minlength':'7'}))
+    username = forms.CharField(help_text="<p class='text-danger lead'>Maximum of 6 Characters, Minimum of 5</p>",widget=forms.TextInput(attrs={'class':'form-control form-control-user','placeholder':'Instructor username','maxlength':'9','minlength':'7'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'form-control form-control-user', 'placeholder':'Valid Password '}))
 
     class Meta:
@@ -65,3 +67,16 @@ class StudentLoginForm(AuthenticationForm):
         fields = ('username','password')
 
    
+class Instructor_Profile(forms.ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ('first_name','last_name','username','email','mobile_number','image')
+
+        widgets = {
+            'first_name':forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'last_name':forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'username':forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'email':forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'mobile_number':forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'image':forms.ClearableFileInput(attrs={'class':'form-control form-control-user'}),
+        }

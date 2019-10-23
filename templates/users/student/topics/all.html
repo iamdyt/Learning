@@ -1,4 +1,4 @@
-{% extends 'users/instructor/layout.html' %}
+{% extends 'users/student/layout.html' %}
 {% load humanize %}
 {% block title %}
     All Topics
@@ -7,10 +7,9 @@
 {% block content %}
     <section class="row">
         <div class="col-lg-12 mt-4">
-            <span class="lead mb-3">All Topic in Courses Taken/Added By You</span>
+            <span class="lead mb-3">All Topic in Courses Taken By You</span>
             <div class="card shadow mt-2 mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">All Topics <span><a href="{% url 'courses:topic_add' %}" class="btn float-right mb-3 btn-primary">&plus; Add Topic</a></span></h6>
             </div>
             <div class="card-body">
                <table class="table table-striped">
@@ -19,10 +18,9 @@
                     
                     <th scope="col">Title</th>
                     <th scope='col'>Course</th>
-                    <th scope="col">File</th>
                      <th scope="col">Levels</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Date</th>
+                    <th scope="col">Lecturer</th>
+                    <th scope="col">Published</th>
                     <th scope="col">Manage</th>
                     </tr>
                 </thead>
@@ -32,11 +30,10 @@
                    
                     <td>{{topic.title}}</td>
                     <td>{{topic.course}}</td>
-                    <td>(<a href="{{topic.file.url}}" class="">{{topic.file}} <i class="fas fa-download"></i></a>)</td>
                     <td>{{topic.levels | capfirst}}</td>
                      <td>{{topic.instructor.first_name}}-{{topic.instructor.last_name}}</td>
                      <td>{{topic.created | naturaltime}}</td>
-                     <td> <a href="{% url 'courses:topic_view' pk=topic.pk %}"><i class="fas fa-eye text-info"></i></a> &emsp; <i class="fas fa-trash text-danger"></i></td>
+                     <td><a href="{% url 'courses:student_topic_single' pk=topic.id %}" class="btn btn-sm btn-info  ">Read more &rarr;</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>

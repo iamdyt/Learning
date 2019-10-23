@@ -1,4 +1,4 @@
-{% extends 'users/instructor/layout.html' %}
+{% extends 'users/student/layout.html' %}
 
 {% block title %}
   Home | Dashboard
@@ -87,7 +87,7 @@
                 </table>
             </div>
               <span class="text-right mr-3 mb-2">
-                  <a href="{% url 'courses:course_all' %}" class="btn btn-primary">All Courses &rarr;</a>
+                  <a href="{% url 'courses:student_courses' %}" class="btn btn-primary">All Courses &rarr;</a>
               </span>
             </div>
             </div>
@@ -125,7 +125,7 @@
                 </table>
             </div>
               <span class="text-right mr-3 mb-2">
-                  <a href="{% url 'courses:topic_all' %}" class="btn btn-primary">All Topic &rarr;</a>
+                  <a href="{% url 'courses:student_topics' %}" class="btn btn-primary">All Topic &rarr;</a>
               </span>
             </div>
             </div>

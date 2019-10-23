@@ -16,9 +16,11 @@ class Course(models.Model):
     session = models.CharField(choices=sess,max_length=15)
     semester = models.CharField(choices=sem,max_length=15)
     levels = models.CharField(choices=rate, max_length=10)
+    video = models.TextField(max_length=900, null=True, blank=True, default='Youtube Video embedd code')
     file = models.FileField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    
 
     def __str__(self):
         return self.course_name
@@ -34,6 +36,7 @@ class Topic (models.Model):
     contents = models.TextField(max_length=1000)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
     instructor = models.OneToOneField(get_user_model(),on_delete=models.SET_NULL, null=True)
+    video = models.TextField(max_length=900, null=True, blank=True, default='Youtube Video embedd code')
     file = models.FileField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

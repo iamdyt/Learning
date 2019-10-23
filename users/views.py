@@ -1,10 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect    
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, ListView, DetailView, UpdateView, CreateView
+from django.views.generic import TemplateView, ListView, DetailView, UpdateView, CreateView, View
 from django.contrib.auth.views  import LoginView
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model,logout
 from courses.models import Course,Topic
-from .forms import StaffRegForm, StaffLoginForm, StudentRegForm, StudentRegForm, StudentLoginForm
+from .forms import StaffRegForm, StaffLoginForm, StudentRegForm, StudentRegForm, StudentLoginForm, Instructor_Profile
 from django.db.models import Q
 
 # Create your views here.
@@ -22,7 +22,11 @@ class Register (CreateView):
 class Login (LoginView):
     template_name = 'users/instructor/login.html'
     form_class = StaffLoginForm
-    success_url = reverse_lazy('users:instructor_dashboard')
+
+    def get_success_url(self):
+        success_url = reverse_lazy('users:instructor_dashboard')
+        return success_url
+
 
 class Dashboard (TemplateView):
     template_name = 'users/instructor/dashboard/index.html'
@@ -67,3 +71,13 @@ class StudentDashboard (TemplateView):
         # context['']
 
         return context
+
+class Instructor_Profile(UpdateView):
+    model = get_user_model()
+    template_name = 'users/instructor/dashboard/profile.html'
+    form_class = Instructor_Profile
+
+class Logout(View):
+    def get (self,request):
+        logout(self.request)
+        return redirect('users:instructor_login', permanent=True)

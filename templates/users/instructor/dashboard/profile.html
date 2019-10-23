@@ -1,0 +1,19 @@
+{% extends 'users/instructor/layout.html' %}
+
+
+{% block content %}
+
+    <div class="row mt-4 mb-2">
+      <div class="col-lg-6 shadow offset-lg-3 p-4">
+        <form method='POST'>
+          {{form.as_p}}
+          <button class="btn btn-info btn-block">Update</button>
+        </form>
+      </div>
+    </div>
+          
+     
+
+      
+
+{% endblock content %}
