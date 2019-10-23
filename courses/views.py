@@ -1,7 +1,8 @@
 
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 from django.contrib.auth import get_user_model
-from django.views.generic import TemplateView, ListView, DetailView, UpdateView, CreateView
+from django.views.generic import TemplateView, ListView, DetailView, UpdateView, CreateView,View
 from .models import Topic,Course
 from django.core.exceptions import ObjectDoesNotExist
 from .forms import CreateCourseForm, CourseUpdateForm, CreateTopicForm, TopicUpdateForm
@@ -45,7 +46,26 @@ class CourseUpdate(UpdateView):
     form_class = CourseUpdateForm
     template_name = 'users/instructor/courses/edit.html'
     
-      
+class CourseRemove(View):
+    def get(self,request,pk):
+        
+        todelete = Course.objects.get(pk=pk)
+        todelete.delete()
+        return redirect('courses:course_all', permanent=True)
+
+
+class TopicRemove(View):
+    def get(self,request,pk):
+        
+        todelete = Topic.objects.get(pk=pk)
+        todelete.delete()
+        return redirect('courses:topic_all', permanent=True)
+
+
+
+
+
+ #TOPIC VIEWS     
 class TopicAdd (CreateView):
     model = Topic
     form_class = CreateTopicForm

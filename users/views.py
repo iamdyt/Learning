@@ -4,7 +4,7 @@ from django.views.generic import TemplateView, ListView, DetailView, UpdateView,
 from django.contrib.auth.views  import LoginView
 from django.contrib.auth import get_user_model,logout
 from courses.models import Course,Topic
-from .forms import StaffRegForm, StaffLoginForm, StudentRegForm, StudentRegForm, StudentLoginForm, Instructor_Profile
+from .forms import StaffRegForm, Student_Profile, StaffLoginForm, StudentRegForm, StudentRegForm, StudentLoginForm, Instructor_Profile
 from django.db.models import Q
 
 # Create your views here.
@@ -77,7 +77,18 @@ class Instructor_Profile(UpdateView):
     template_name = 'users/instructor/dashboard/profile.html'
     form_class = Instructor_Profile
 
+
+class Student_Profile(UpdateView):
+    model = get_user_model()
+    template_name = 'users/student/dashboard/profile.html'
+    form_class = Student_Profile
+
 class Logout(View):
     def get (self,request):
         logout(self.request)
         return redirect('users:instructor_login', permanent=True)
+
+class Student_Logout(View):
+    def get (self,request):
+        logout(self.request)
+        return redirect('users:student_login', permanent=True)

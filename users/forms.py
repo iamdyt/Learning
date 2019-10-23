@@ -21,7 +21,6 @@ class StaffRegForm (UserCreationForm):
             'image':forms.ClearableFileInput(attrs={'class':'form-control'})
 
         }
-
         
 
 class StaffLoginForm(AuthenticationForm):
@@ -68,6 +67,20 @@ class StudentLoginForm(AuthenticationForm):
 
    
 class Instructor_Profile(forms.ModelForm):
+    class Meta:
+        model = get_user_model()
+        fields = ('first_name','last_name','username','email','mobile_number','image')
+
+        widgets = {
+            'first_name':forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'last_name':forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'username':forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'email':forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'mobile_number':forms.TextInput(attrs={'class':'form-control form-control-user'}),
+            'image':forms.ClearableFileInput(attrs={'class':'form-control form-control-user'}),
+        }
+
+class Student_Profile(forms.ModelForm):
     class Meta:
         model = get_user_model()
         fields = ('first_name','last_name','username','email','mobile_number','image')

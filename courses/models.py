@@ -16,7 +16,7 @@ class Course(models.Model):
     session = models.CharField(choices=sess,max_length=15)
     semester = models.CharField(choices=sem,max_length=15)
     levels = models.CharField(choices=rate, max_length=10)
-    video = models.TextField(max_length=900, null=True, blank=True, default='Youtube Video embedd code')
+    video = models.TextField(max_length=900, null=True, blank=True, default='Youtube Video embed code')
     file = models.FileField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

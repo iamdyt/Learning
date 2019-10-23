@@ -35,7 +35,7 @@
                     <td>{{topic.levels | capfirst}}</td>
                      <td>{{topic.instructor.first_name}}-{{topic.instructor.last_name}}</td>
                      <td>{{topic.created | naturaltime}}</td>
-                     <td> <a href="{% url 'courses:topic_view' pk=topic.pk %}"><i class="fas fa-eye text-info"></i></a> &emsp; <i class="fas fa-trash text-danger"></i></td>
+                     <td> <a href="{% url 'courses:topic_view' pk=topic.pk %}"><i class="fas fa-eye text-info"></i></a> &emsp; <a href="{% url 'courses:topic_remove' pk=topic.id %}"><i class="fas fa-trash text-danger"></i></a></td>
                      </tr>
                 {% endfor %}
                 </tbody>

@@ -8,6 +8,8 @@ urlpatterns = [
     path("all/",views.CourseAll .as_view(), name="course_all"),
     path("view/<int:pk>/",views.CourseSingle.as_view(), name="course_view"),
     path("edit/<int:pk>/",views.CourseUpdate.as_view(), name="course_update"),
+    path("delete/<int:pk>/",views.CourseRemove.as_view(), name="course_remove"),
+    path("delete/topic/<int:pk>/",views.TopicRemove.as_view(), name="topic_remove"),
 
     ## Topic Routes
     path("topic/add/",views.TopicAdd.as_view(), name="topic_add"),

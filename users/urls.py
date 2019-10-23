@@ -15,5 +15,7 @@ urlpatterns = [
     path("student/sign-in/", views.StudentLogin.as_view(), name="student_login"),
     path("student/dashboard/",views.StudentDashboard.as_view(), name="student_dashboard"),
     path("profile/<int:pk>/",views.Instructor_Profile.as_view(), name="instructor_profile"),
-    path("logout/",views.Logout.as_view(), name="logout")
+    path("student/profile/<int:pk>/",views.Student_Profile.as_view(), name="student_profile"),
+    path("logout/",views.Logout.as_view(), name="logout"),
+    path("logout/student/",views.Student_Logout.as_view(), name="student_logout")
 ]
