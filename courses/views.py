@@ -1,11 +1,10 @@
-
 from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from django.contrib.auth import get_user_model
 from django.views.generic import TemplateView, ListView, DetailView, UpdateView, CreateView,View
-from .models import Topic,Course
+from .models import Topic,Course,Assignment
 from django.core.exceptions import ObjectDoesNotExist
-from .forms import CreateCourseForm, CourseUpdateForm, CreateTopicForm, TopicUpdateForm
+from .forms import CreateCourseForm, CourseUpdateForm, CreateTopicForm, TopicUpdateForm,CreateAssignmentForm
 from django.db.models import Q
 
 # Create your views here.
@@ -117,3 +116,31 @@ class StudentTopicsingle(DetailView):
     model = Topic
     context_object_name  = 'topic'
     template_name ='users/student/topics/single.html'
+
+class CreateAssignment(CreateView):
+    model = Assignment
+    form_class = CreateAssignmentForm
+    template_name = 'users/instructor/assignment/create.html'
+    success_url = reverse_lazy('courses:assignment_all')
+    def get_initial (self):
+        initial = super().get_initial()
+        initial['author'] = self.request.user.username
+        return initial
+
+class UpdateAssignment(UpdateView):
+    model = Assignment
+    form_class = CreateAssignmentForm
+    template_name = 'users/instructor/assignment/edit.html'
+    success_url = reverse_lazy('courses:assignment_all')
+
+class AllAssignment(ListView):
+    model = Assignment
+    template_name = 'users/instructor/assignment/all.html'
+    context_object_name = 'assignments'
+
+class AssignmentRemove(View):
+    def get(self,request,pk):
+        
+        todelete = Assignment.objects.get(pk=pk)
+        todelete.delete()
+        return redirect('courses:assignment_all', permanent=True)

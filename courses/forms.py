@@ -1,5 +1,5 @@
 from django import forms
-from .models import Course,Topic
+from .models import Course,Topic,Assignment
 from django.contrib.auth import get_user_model,get_user
 
 
@@ -75,4 +75,16 @@ class TopicUpdateForm(forms.ModelForm):
 
         help_texts = {
             "file":"<p class='text-danger'>Note: Only uploads new files if you wish to change from existing one</p>"
+        }
+
+class CreateAssignmentForm(forms.ModelForm):
+    #level = forms.CharField(choices=Assignment.choice,widget=forms.Select(attrs={'class':'form-control'}))
+    class Meta:
+        model = Assignment
+        fields = "__all__"
+        widgets={
+            'course':forms.TextInput(attrs={'class':'form-control','placeholder':'Course Title'}),
+            'question':forms.Textarea(attrs={'class':'form-control','placeholder':'Course Question','rows':'4'}),
+            'level':forms.Select(attrs={'class':'form-control','placeholder':'Course Question'}),
+            'author':forms.TextInput(attrs={'class':'form-control','readonly':'readonly'})
         }

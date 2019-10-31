@@ -21,5 +21,11 @@ urlpatterns = [
     path("student/all/",views.StudentCourses.as_view(), name="student_courses"),
     path("student/view/<int:pk>/",views.StudentCoursesingle.as_view(), name="student_course_single"),
     path("student/topics/",views.StudentTopics.as_view(), name="student_topics"),
-    path("student/topic/view/<int:pk>/",views.StudentTopicsingle.as_view(), name="student_topic_single")
+    path("student/topic/view/<int:pk>/",views.StudentTopicsingle.as_view(), name="student_topic_single"),
+
+    #Assignment
+    path("instructor/assignment/add/",views.CreateAssignment.as_view(), name="assignment_add"),
+    path("instructor/assignment/<int:pk>/edit/",views.UpdateAssignment.as_view(), name="assignment_update"),
+    path("instrutor/assignment/<int:pk>/remove/",views.AssignmentRemove.as_view(), name="assignment_remove"),
+    path("instructor/assignment/all/",views.AllAssignment.as_view(), name="assignment_all")
 ]

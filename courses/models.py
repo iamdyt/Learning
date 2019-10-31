@@ -50,3 +50,5 @@ class Assignment(models.Model):
     course = models.CharField(max_length=50)
     question = models.TextField(max_length=999)
     level = models.CharField(choices=choice, max_length=50)
+    author = models.CharField(max_length=50, null=True)
+    created = models.DateField(auto_now_add=True, null=True)
