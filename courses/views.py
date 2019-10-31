@@ -148,3 +148,13 @@ class AssignmentRemove(View):
         todelete = Assignment.objects.get(pk=pk)
         todelete.delete()
         return redirect('courses:assignment_all', permanent=True)
+
+#StudentAssignment
+
+class AllStudentAssignment(ListView):
+    def get_queryset(self):
+        queryset = Assignment.objects.filter(level=self.request.user.level)
+        return queryset
+    
+    template_name = 'users/student/assignment/all.html'
+    context_object_name = 'assignments'
