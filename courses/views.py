@@ -2,9 +2,9 @@ from django.urls import reverse_lazy
 from django.shortcuts import redirect
 from django.contrib.auth import get_user_model
 from django.views.generic import TemplateView, ListView, DetailView, UpdateView, CreateView,View
-from .models import Topic,Course,Assignment
+from .models import Topic,Course,Assignment,Answer
 from django.core.exceptions import ObjectDoesNotExist
-from .forms import CreateCourseForm, CourseUpdateForm, CreateTopicForm, TopicUpdateForm,CreateAssignmentForm
+from .forms import CreateCourseForm, CourseUpdateForm, CreateTopicForm, TopicUpdateForm,CreateAssignmentForm,StudentAnswerForm
 from django.db.models import Q
 
 # Create your views here.
@@ -149,7 +149,7 @@ class AssignmentRemove(View):
         todelete.delete()
         return redirect('courses:assignment_all', permanent=True)
 
-#StudentAssignment
+#StudentAssignment/Answer
 
 class AllStudentAssignment(ListView):
     def get_queryset(self):
@@ -158,3 +158,20 @@ class AllStudentAssignment(ListView):
     
     template_name = 'users/student/assignment/all.html'
     context_object_name = 'assignments'
+
+class StudentAnswer(CreateView):
+    model = Answer
+    form_class = StudentAnswerForm
+    template_name = 'users/student/assignment/single.html'
+    success_url = reverse_lazy('courses:student_assignment_all')
+
+    def get_initial(self):
+        initial = super().get_initial()
+        course = Assignment.objects.get(pk=self.kwargs['pk'])
+        
+        initial['course'] = course.course
+        initial['matric'] =self.request.user.username
+        initial['question'] = course.question
+        initial['level'] = course.level
+        return initial
+        

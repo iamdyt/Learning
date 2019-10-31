@@ -1,5 +1,5 @@
 from django import forms
-from .models import Course,Topic,Assignment
+from .models import Course,Topic,Assignment,Answer
 from django.contrib.auth import get_user_model,get_user
 
 
@@ -87,4 +87,18 @@ class CreateAssignmentForm(forms.ModelForm):
             'question':forms.Textarea(attrs={'class':'form-control','placeholder':'Course Question','rows':'4'}),
             'level':forms.Select(attrs={'class':'form-control','placeholder':'Course Question'}),
             'author':forms.TextInput(attrs={'class':'form-control','readonly':'readonly'})
+        }
+
+class StudentAnswerForm (forms.ModelForm):
+    class Meta:
+        model = Answer
+        fields = '__all__'
+        widgets={
+            'course':forms.TextInput(attrs={'class':'form-control','readonly':'readonly'}),
+            'matric':forms.TextInput(attrs={'class':'form-control','readonly':'readonly'}),
+            'question':forms.Textarea(attrs={'class':'form-control','readonly':'readonly','rows':'4'}),
+            'level':forms.TextInput(attrs={'class':'form-control','readonly':'readonly'}),
+            'answer':forms.FileInput(attrs={'class':'form-control'}),
+            'author':forms.TextInput(attrs={'class':'form-control','readonly':'readonly'})
+
         }

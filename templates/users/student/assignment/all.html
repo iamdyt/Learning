@@ -32,7 +32,7 @@
                     <td>{{ass.level}}</td>
                     <td>{{ass.created | capfirst}}</td>
                      
-                     <td> <a href="{% url 'courses:assignment_update' pk=ass.pk %}"><i class="fas fa-edit text-info"></i></a> &emsp; <a href="{% url 'courses:assignment_remove' pk=ass.id %}"><i class="fas fa-trash text-danger"></i></a></td>
+                     <td> <a href="{% url 'courses:student_answer' pk=ass.pk %}" class='btn btn-info'>Answer &rarr;</a> </td>
                      </tr>
                 {% endfor %}
                 </tbody>

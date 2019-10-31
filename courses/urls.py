@@ -29,6 +29,7 @@ urlpatterns = [
     path("instrutor/assignment/<int:pk>/remove/",views.AssignmentRemove.as_view(), name="assignment_remove"),
     path("instructor/assignment/all/",views.AllAssignment.as_view(), name="assignment_all"),
 
-    #studentAssignment
+    #studentAssignment/Answer
     path("student/assignment/all/",views.AllStudentAssignment.as_view(), name="student_assignment_all"),
+    path("student/answer/<int:pk>/",views.StudentAnswer.as_view(), name="student_answer")
 ]

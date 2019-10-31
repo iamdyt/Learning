@@ -52,3 +52,12 @@ class Assignment(models.Model):
     level = models.CharField(choices=choice, max_length=50)
     author = models.CharField(max_length=50, null=True)
     created = models.DateField(auto_now_add=True, null=True)
+
+class Answer (models.Model):
+    course = models.CharField(max_length=50)
+    matric = models.CharField(max_length=50)
+    question = models.TextField(max_length=999)
+    level = models.CharField(max_length=50)
+    answer = models.FileField()
+    author = models.CharField(max_length=16, null=True)
+    submitted = models.DateField(auto_now_add=True)
