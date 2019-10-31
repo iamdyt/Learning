@@ -98,7 +98,7 @@ class StudentAnswerForm (forms.ModelForm):
             'matric':forms.TextInput(attrs={'class':'form-control','readonly':'readonly'}),
             'question':forms.Textarea(attrs={'class':'form-control','readonly':'readonly','rows':'4'}),
             'level':forms.TextInput(attrs={'class':'form-control','readonly':'readonly'}),
-            'answer':forms.FileInput(attrs={'class':'form-control'}),
+            'answer':forms.FileInput(attrs={'class':'form-control','required':'required'}),
             'author':forms.TextInput(attrs={'class':'form-control','readonly':'readonly'})
 
         }

@@ -117,6 +117,7 @@ class StudentTopicsingle(DetailView):
     context_object_name  = 'topic'
     template_name ='users/student/topics/single.html'
 
+#Instructor Assignment/Answer
 class CreateAssignment(CreateView):
     model = Assignment
     form_class = CreateAssignmentForm
@@ -149,6 +150,16 @@ class AssignmentRemove(View):
         todelete.delete()
         return redirect('courses:assignment_all', permanent=True)
 
+class ViewAnswer(ListView):
+    context_object_name = 'answers'
+    template_name = 'users/instructor/assignment/answer.html'
+    def get_queryset(self):
+        question = Assignment.objects.get(pk=self.kwargs['pk'])
+        queryset = Answer.objects.filter(question=question)
+        return queryset
+    
+
+
 #StudentAssignment/Answer
 
 class AllStudentAssignment(ListView):
@@ -167,11 +178,11 @@ class StudentAnswer(CreateView):
 
     def get_initial(self):
         initial = super().get_initial()
-        course = Assignment.objects.get(pk=self.kwargs['pk'])
-        
+        course = Assignment.objects.get(pk=self.kwargs['pk'])        
         initial['course'] = course.course
         initial['matric'] =self.request.user.username
         initial['question'] = course.question
         initial['level'] = course.level
+        initial['author'] = course.author
         return initial
         

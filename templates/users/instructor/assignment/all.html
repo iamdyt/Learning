@@ -33,7 +33,7 @@
                     <td>{{ass.level}}</td>
                     <td>{{ass.created | capfirst}}</td>
                      <td>{{ass.author}}</td>
-                     <td> <a href="{% url 'courses:assignment_update' pk=ass.pk %}"><i class="fas fa-edit text-info"></i></a> &emsp; <a href="{% url 'courses:assignment_remove' pk=ass.id %}"><i class="fas fa-trash text-danger"></i></a></td>
+                     <td> <a href="{% url 'courses:assignment_update' pk=ass.pk %}"><i class="fas fa-edit text-info"></i></a> &emsp; <a href="{% url 'courses:assignment_remove' pk=ass.id %}"><i class="fas fa-trash text-danger"></i></a>&emsp; <a href="{% url 'courses:view_answer' pk=ass.id %}" class="btn btn-sm btn-info">View Answers</a></td>
                      </tr>
                 {% endfor %}
                 </tbody>

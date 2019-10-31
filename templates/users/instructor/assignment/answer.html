@@ -1,0 +1,48 @@
+{% extends 'users/instructor/layout.html' %}
+{% load humanize %}
+{% block title %}
+    All Answers
+{% endblock title %}
+
+{% block content %}
+    <section class="row">
+        <div class="col-lg-12 mt-4">
+            <span class="lead mb-3">All Answered Assignment</span>
+            <div class="card shadow mt-2 mb-4">
+            <div class="card-header py-3">
+            </div>
+            <div class="card-body">
+            {% if asnswers %}
+               <table class="table table-striped">
+                <thead>
+                    <tr>
+                    
+                    
+                    <th scope='col'>Course</th>
+                    <th scope="col">SubmittedBy</th>
+                     <th scope="col">Date</th>
+                    <th scope="col">File</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for ans in answers  %}
+                    <tr>
+                   
+                    <td>{{ans.course}}</td>
+                    <td>{{ans.matric}}</td>
+                    <td>{{ass.submitted | capfirst}}</td>
+                     <td><a href="{% url '{{ans.answer.url}}' %}">Download File </a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+            {% else %}
+                <p class="display-4 ext-center">No Answers in the Database</p>
+                
+            {% endif %}
+            </div>
+            </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
