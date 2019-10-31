@@ -1,0 +1,22 @@
+{% extends 'users/instructor/layout.html' %}
+
+{% block title %}
+    Create A Assignment
+{% endblock title %}
+
+{% block content %}
+ <p class="lead"> Dashboard / Course / Assignment / Create</p>
+    <section class="row">
+   
+      <div class="col-lg-6 offset-lg-3 shadow p-4">
+          <form method='post' enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn btn-info btn-block">Submit</button>
+        </form>
+      </div>
+
+    </div>
+   
+    </section>
+{% endblock content %}

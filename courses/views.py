@@ -134,7 +134,11 @@ class UpdateAssignment(UpdateView):
     success_url = reverse_lazy('courses:assignment_all')
 
 class AllAssignment(ListView):
-    model = Assignment
+
+    def get_queryset(self):
+        queryset = Assignment.objects.filter(author=self.request.user.username)
+        return queryset
+    
     template_name = 'users/instructor/assignment/all.html'
     context_object_name = 'assignments'
 
