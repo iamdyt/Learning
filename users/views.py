@@ -15,7 +15,7 @@ class Register (CreateView):
 
 
     def get_success_url (self):
-        url = reverse_lazy('users:instructor_dashboard')
+        url = reverse_lazy('users:instructor_login')
         return url
     
 

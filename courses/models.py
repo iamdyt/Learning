@@ -45,4 +45,8 @@ class Topic (models.Model):
     def get_absolute_url(self):
         return reverse("courses:topic_view", kwargs={"pk": self.pk})
     
-    
+class Assignment(models.Model):
+    choice = (('ND-I','ND-I'),('ND-II','ND-II'),('HND-I','HND-I'),('HND-II','HND-II'))
+    course = models.CharField(max_length=50)
+    question = models.TextField(max_length=999)
+    level = models.CharField(choices=choice, max_length=50)
