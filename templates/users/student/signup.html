@@ -104,6 +104,24 @@
 
   <!-- Custom scripts for all pages-->
   <script src=" {% static 'users/js/sb-admin-2.min.js' %} "></script>
+  {% block validation%}
+    <script>
+    /** const firstName = document.getElementById('id_first_name')    
+      document.getElementById('id_first_name').addEventListener('input', function(){
+        if (Number.parseInt(firstName.value) | firstName.value == 0){
+          firstName.value = ''
+        }
+      })
+
+      const lastName = document.getElementById('id_last_name')    
+      document.getElementById('id_last_name').addEventListener('input', function(){
+        if (Number.parseInt(lastName.value) | lastName.value == 0){
+          lastName.value = ''
+        }
+      }) **/
+
+    </script>
+  {% endblock validation%}
 </body>
 
 </html>
