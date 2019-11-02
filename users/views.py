@@ -8,6 +8,9 @@ from .forms import StaffRegForm, Student_Profile, StaffLoginForm, StudentRegForm
 from django.db.models import Q
 
 # Create your views here.
+class Home (TemplateView):
+    template_name = 'users/index/index.html'
+
 class Register (CreateView):
     model = get_user_model()
     template_name = 'users/instructor/signup.html'

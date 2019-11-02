@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Personalized Learning</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static 'users/index/css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'users/index/css/icomoon.css' %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static 'users/index/css/bootstrap.css' %} ">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="{% static 'users/index/css/magnific-popup.css' %}">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="{% static 'users/index/css/flexslider.css' %}">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="{% static 'users/index/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'users/index/css/owl.theme.default.min.css' %}">
+	
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href=" {% static 'users/index/fonts/flaticon/font/flaticon.css' %} ">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="{% static  'users/index/css/style.css' %}">
+
+	<!-- Modernizr JS -->
+	<script src="{% static 'users/index/js/modernizr-2.6.2.min.js' %}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+	<div class="colorlib-loader"></div>
+
+	<div id="page">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="upper-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-4">
+							<p>PersonalizedLearning</p>
+						</div>
+						<div class="col-xs-6 col-md-push-2 text-right">
+							<p>
+								<ul class="colorlib-social-icons">
+									<li><a href="#"><i class="icon-twitter"></i></a></li>
+									<li><a href="#"><i class="icon-facebook"></i></a></li>
+									<li><a href="#"><i class="icon-linkedin"></i></a></li>
+									<li><a href="#"><i class="icon-dribbble"></i></a></li>
+								</ul>
+							</p>
+							<p class="btn-apply"><a href="#">Apply Now</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-2">
+							<div id="colorlib-logo"><a href="index.html">Personalized_Learning</a></div>
+						</div>
+						<div class="col-md-10 text-right menu-1">
+							<ul>
+							
+								<li class="btn-cta"><a href="{% url 'users:index' %}"><span>Home</span></a></li>
+								<li class="btn-cta"><a href="{% url 'users:student_login'%}"><span>Student Portal</span></a></li>
+								<li class="btn-cta"><a href="{% url 'users:index' %"><span>About</span></a></li>
+								<li class="btn-cta"><a href="{% url 'users:instructor_login'%}"><span>Instructor Portal</span></a></li>
+								<li class="btn-cta"><a href="{% url 'users:index' %"><span>Register Here</span></a></li>
+								<li class="btn-cta"><a href="{% url 'users:index' %"><span>Contact Us</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<aside id="colorlib-hero">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url({% static 'users/index/images/img_bg_1.jpg' %});">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-8 col-sm-12 col-md-offset-2 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h1>Learning System</h1>
+				   					<p><a href="#" class="btn btn-primary btn-lg btn-learn">Register Now</a></p>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			   	<li style="background-image: url({% static 'users/index/images/img_bg_2.jpg' %});">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-8 col-sm-12 col-md-offset-2 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h1>Personalized Learning  Supervised By: Alhaji Kawonise</h1>
+				   					<p><a href="#" class="btn btn-primary btn-lg btn-learn">LOGIN HERE </a></p>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			   	<li style="background-image: url({% static 'users/index/images/img_bg_3.jpg' %});">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-8 col-sm-12 col-md-offset-2 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h1>Education is a Key to Success</h1>
+				   					<p><a href="#" class="btn btn-primary btn-lg btn-learn">Register Now</a></p>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			   	<li style="background-image: url({% static 'users/index/images/img_bg_4.jpg' %});">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-8 col-sm-12 col-md-offset-2 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h1>Oyewale Samson Damilola HC201701887</h1>
+				   					<p><a href="#" class="btn btn-primary btn-lg btn-learn">Register Now</a></p>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>	
+			  	</ul>
+		  	</div>
+		</aside>
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-6 offset-md-3" col-md-6 .offset-md-3></div>
+		<form class="dropdown-menu p-4">
+			<div class="form-group">
+			  <label for="exampleDropdownFormEmail2">Email address</label>
+			  <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+			</div>
+			<div class="form-group">
+			  <label for="exampleDropdownFormPassword2">Password</label>
+			  <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+			</div>
+			<div class="form-group">
+			  <div class="form-check">
+				<input type="checkbox" class="form-check-input" id="dropdownCheck2">
+				<label class="form-check-label" for="dropdownCheck2">
+				  Remember me
+				</label>
+			  </div>
+			</div>
+			<button type="submit" class="btn btn-primary">Sign in</button>
+		  </form>
+	</div>
+	
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+
+
+	
+	
+	<!-- jQuery -->
+	<script src="{% static 'users/index/js/jquery.min.js' %}"></script>
+	<!-- jQuery Easing -->
+	<script src="{% static  'users/index/js/jquery.easing.1.3.js ' %} "></script>
+	<!-- Bootstrap -->
+	<script src=" {% static 'users/index/js/bootstrap.min.js' %} "></script>
+	<!-- Waypoints -->
+	<script src="{% static  'users/index/js/jquery.waypoints.min.js ' %} "></script>
+	<!-- Stellar Parallax -->
+	<script src="{% static  'users/index/js/jquery.stellar.min.js ' %}"></script>
+	<!-- Flexslider -->
+	<script src="{% static  'users/index/js/jquery.flexslider-min.js' %} "></script>
+	<!-- Owl carousel -->
+	<script src=" {% static 'users/index/js/owl.carousel.min.js' %} "></script>
+	<!-- Magnific Popup -->
+	<script src="{% static  'users/index/js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="{% static  'users/index/js/jquery.countTo.js ' %}"></script>
+	<!-- Main -->
+	<script src="{% static 'users/index/js/main.js' %}"></script>
+
+	</body>
+</html>
+

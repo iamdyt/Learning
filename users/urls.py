@@ -8,7 +8,8 @@ app_name = 'users'
 urlpatterns = [
     path("instructor/sign-up/", views.Register.as_view(), name="instructor_register"),
     path("instructor/sign-in/", views.Login.as_view(), name="instructor_login"),
-    path("instructor/dashboard/",views.Dashboard .as_view(), name="instructor_dashboard"),
+    path("instructor/dashboard/",views.Dashboard.as_view(), name="instructor_dashboard"),
+    path("", views.Home.as_view(), name="index"),
 
     #Students
     path("student/sign-up/", views.StudentRegister.as_view(), name="student_register"),

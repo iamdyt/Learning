@@ -3,7 +3,7 @@ from .import views
 app_name ='courses'
 
 urlpatterns = [
-    ## Course Routes
+    ## Instructor Course Routes
     path('add/',views.CourseAdd.as_view(),name='course_add'),
     path("all/",views.CourseAll .as_view(), name="course_all"),
     path("view/<int:pk>/",views.CourseSingle.as_view(), name="course_view"),
